@@ -121,10 +121,10 @@ if ( $displayServicePerformance == 1) {
 	
 	# Define the order for resort the datasource objects:
 	$dsOrder = array(
-		 0 => 'NUMSACTSVCCHECKS1M',
-		 1 => 'NUMACTSVCCHECKS1M',
-		 2 => 'NUMOACTSVCCHECKS1M',
-		 3 => 'NUMCACHEDSVCCHECKS1M',
+		 0 => 'NUMSACTSVCCHECKS'.end($this->DS)['ACT'].'M',
+		 1 => 'NUMACTSVCCHECKS'.end($this->DS)['ACT'].'M',
+		 2 => 'NUMOACTSVCCHECKS'.end($this->DS)['ACT'].'M',
+		 3 => 'NUMCACHEDSVCCHECKS'.end($this->DS)['ACT'].'M',
 	);
 	
 	# Find all matching datasource objects and save them into temporary array
@@ -159,22 +159,22 @@ if ( $displayServicePerformance == 1) {
 			
 			# Parse special by name (color, label etc.)
 			switch ( $VALUE['NAME'] ) {
-				case 'NUMSACTSVCCHECKS1M':
+				case 'NUMSACTSVCCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Scheduled service checks';
 					$def_color        = '#FFFF00';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMACTSVCCHECKS1M':
+				case 'NUMACTSVCCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Active service checks';
 					$def_color        = '#00AF33';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMOACTSVCCHECKS1M':
+				case 'NUMOACTSVCCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'On-demand service checks';
 					$def_color        = '#0000CC';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMCACHEDSVCCHECKS1M':
+				case 'NUMCACHEDSVCCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Cached service checks';
 					$def_color        = '#FF0000';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
@@ -213,12 +213,12 @@ if ( $displayHostPerformance == 1) {
 	
 	# Define the order for resort the datasource objects:
 	$dsOrder = array(
-		 0 => 'NUMSERHSTCHECKS1M',
-		 1 => 'NUMPARHSTCHECKS1M',
-		 2 => 'NUMSACTHSTCHECKS1M',
-		 3 => 'NUMACTHSTCHECKS1M',
-		 4 => 'NUMOACTHSTCHECKS1M',
-		 5 => 'NUMCACHEDHSTCHECKS1M',
+		 0 => 'NUMSERHSTCHECKS'.end($this->DS)['ACT'].'M',
+		 1 => 'NUMPARHSTCHECKS'.end($this->DS)['ACT'].'M',
+		 2 => 'NUMSACTHSTCHECKS'.end($this->DS)['ACT'].'M',
+		 3 => 'NUMACTHSTCHECKS'.end($this->DS)['ACT'].'M',
+		 4 => 'NUMOACTHSTCHECKS'.end($this->DS)['ACT'].'M',
+		 5 => 'NUMCACHEDHSTCHECKS'.end($this->DS)['ACT'].'M',
 	);
 	
 	# Find all matching datasource objects and save them into temporary array
@@ -253,32 +253,32 @@ if ( $displayHostPerformance == 1) {
 			
 			# Parse special by name (color, label etc.)
 			switch ( $VALUE['NAME'] ) {
-				case 'NUMSERHSTCHECKS1M':
+				case 'NUMSERHSTCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Serial host checks';
 					$def_color        = '#7A378B';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMPARHSTCHECKS1M':
+				case 'NUMPARHSTCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Parallel host checks';
 					$def_color        = '#B6AFA9';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMSACTHSTCHECKS1M':
+				case 'NUMSACTHSTCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Scheduled host checks';
 					$def_color        = '#FFFF00';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMACTHSTCHECKS1M':
+				case 'NUMACTHSTCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Active host checks';
 					$def_color        = '#00AF33';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMOACTHSTCHECKS1M':
+				case 'NUMOACTHSTCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'On-demand host checks';
 					$def_color        = '#0000CC';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
 					break;
-				case 'NUMCACHEDHSTCHECKS1M':
+				case 'NUMCACHEDHSTCHECKS'.end($this->DS)['ACT'].'M':
 				    $def_label        = 'Cached host checks';
 					$def_color        = '#FF0000';
 					$def[$num_graph] .= rrd::area("var$KEY", $def_color, rrd::cut($def_label, 25), ':STACK');
