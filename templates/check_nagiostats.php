@@ -5,9 +5,9 @@
 # written by  : Florian Zicklam <github@florianzicklam.de>
 # modified by : Florian Zicklam
 #
-# version     : 0.0~fz
+# version     : 0.5~fz
 # init date   : 2016-07-25
-# last change : 2016-07-25
+# last change : 2016-07-28
 #
 # INFO #######################################################################
 # 
