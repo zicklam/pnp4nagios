@@ -2,16 +2,17 @@
 # ----------------------------------------------------------------------------
 # PNP4Nagios Template for check_nagiostats
 #
-# written by  : Florian Zicklam <github@florianzicklam.de>
+# written by  : Florian Zicklam <opensource@florianzicklam.de>
 # modified by : Florian Zicklam
 #
-# version     : 0.5~fz
+# version     : 1.0~fz
 # init date   : 2016-07-25
-# last change : 2016-07-28
+# last change : 2016-11-22
 #
 # INFO #######################################################################
 # 
-# Purpose     :
+# Purpose     : Display Nagios/Icinga performance statistics
+
 #
 # Description :
 #  ./check_nagiostats --TIMERANGE 5
@@ -25,6 +26,7 @@
 $debugOutput = 0;
 
 # Default values
+$wm = base64_decode('wqkgPG9wZW5zb3VyY2VAZmxvcmlhbnppY2tsYW0uZGU+').'- Template: '.basename(__FILE__);
 
 # Show Graphs:
 $displayCheckLatency       = 1;
@@ -51,7 +53,7 @@ if ( $displayCheckLatency == 1 ) {
   $opt[$num_graph]     = "--base 1000 --lower=0 --slope-mode ";
   $opt[$num_graph]    .= "--vertical-label \"ms\" ";
   $opt[$num_graph]    .= "--title \"Check Latency in milliseconds\" ";
-  $opt[$num_graph]    .= "--watermark \"© Florian Zicklam - Template: ".basename(__FILE__)."\" ";
+  $opt[$num_graph]    .= "--watermark \"".$wm."\" ";
 
   $def[$num_graph] = "";
 
@@ -83,7 +85,7 @@ if ( $displayCheckExecutionTime == 1 ) {
   $opt[$num_graph]     = "--base 1000 --lower=0 --slope-mode ";
   $opt[$num_graph]    .= "--vertical-label \"ms\" ";
   $opt[$num_graph]    .= "--title \"Check Execution Time in milliseconds\" ";
-  $opt[$num_graph]    .= "--watermark \"© Florian Zicklam - Template: ".basename(__FILE__)."\" ";
+  $opt[$num_graph]    .= "--watermark \"".$wm."\" ";
 
   $def[$num_graph] = "";
 
@@ -110,11 +112,11 @@ if ( $displayServicePerformance == 1) {
 	$num_graph++;
 	
 	# Graph configuration
-	$ds_name[$num_graph] = "Service Performance in last ".end($this->DS)['ACT']." minute(s)";
+	$ds_name[$num_graph] = "Service Performance in ".end($this->DS)['ACT']." minute(s) Timerange";
 	$opt[$num_graph]     = "--base 1000 --lower=0 --slope-mode --alt-autoscale-max ";
 	$opt[$num_graph]    .= "--vertical-label \"count\" ";
-	$opt[$num_graph]    .= "--title \"Service Performance in last ".end($this->DS)['ACT']." minute(s)\" ";
-	$opt[$num_graph]    .= "--watermark \"© Florian Zicklam - Template: ".basename(__FILE__)."\" ";
+	$opt[$num_graph]    .= "--title \"Service Performance in ".end($this->DS)['ACT']." minute(s) Timerange\" ";
+	$opt[$num_graph]    .= "--watermark \"".$wm."\" ";
 	
 	# Start definition
 	$def[$num_graph] = "";
@@ -202,11 +204,11 @@ if ( $displayHostPerformance == 1) {
 	$num_graph++;
 	
 	# Graph configuration
-	$ds_name[$num_graph] = "Host Performance in last ".end($this->DS)['ACT']." minute(s)";
+	$ds_name[$num_graph] = "Host Performance in ".end($this->DS)['ACT']." minute(s) Timerange";
 	$opt[$num_graph]     = "--base 1000 --lower=0 --slope-mode --alt-autoscale-max ";
 	$opt[$num_graph]    .= "--vertical-label \"count\" ";
-	$opt[$num_graph]    .= "--title \"Host Performance in last ".end($this->DS)['ACT']." minute(s)\" ";
-	$opt[$num_graph]    .= "--watermark \"© Florian Zicklam - Template: ".basename(__FILE__)."\" ";
+	$opt[$num_graph]    .= "--title \"Host Performance in ".end($this->DS)['ACT']." minute(s) Timerange\" ";
+	$opt[$num_graph]    .= "--watermark \"".$wm."\" ";
 	
 	# Start definition
 	$def[$num_graph] = "";
@@ -311,7 +313,7 @@ if ( $displayServiceStatistics == 1) {
 	$opt[$num_graph]     = "--base 1000 --lower=0 --slope-mode --alt-autoscale-max ";
 	$opt[$num_graph]    .= "--vertical-label \"count\" ";
 	$opt[$num_graph]    .= "--title \"Service Statistics\" ";
-	$opt[$num_graph]    .= "--watermark \"© Florian Zicklam - Template: ".basename(__FILE__)."\" ";
+	$opt[$num_graph]    .= "--watermark \"".$wm."\" ";
 	
 	# Start definition
 	$def[$num_graph] = "";
@@ -419,7 +421,7 @@ if ( $displayHostStatistics == 1) {
 	$opt[$num_graph]     = "--base 1000 --lower=0 --slope-mode --alt-autoscale-max ";
 	$opt[$num_graph]    .= "--vertical-label \"count\" ";
 	$opt[$num_graph]    .= "--title \"Host Statistics\" ";
-	$opt[$num_graph]    .= "--watermark \"© Florian Zicklam - Template: ".basename(__FILE__)."\" ";
+	$opt[$num_graph]    .= "--watermark \"".$wm."\" ";
 	
 	# Start definition
 	$def[$num_graph] = "";
