@@ -7,10 +7,9 @@
 
 ### Template installation path
 `/usr/share/pnp4nagios/templates`
-or in any other template path configured as 
-```php
-$conf['template_dirs'][] = 
-``` in PNP_CONFIG_PATH/config.php
+or in any other template path configured in PNP_CONFIG_PATH/config.php
+`$conf['template_dirs'][] = `
+
 
 # Example output
 ![Alt Text](/.docs/check_latency.png)
